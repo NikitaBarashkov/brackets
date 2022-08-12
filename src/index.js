@@ -19,7 +19,8 @@ module.exports = function check(str, bracketsConfig) {
     
       if(currentSymbol === openBrackets){
         let lastSymbol = steck[steck.length - 1];
-        if(steck.length > 0 && lastSymbol === '|' && currentSymbol === '|'){
+        if(steck.length > 0 && currentSymbol === lastSymbol && currentSymbol !== '('
+          && currentSymbol !== '{' && currentSymbol !== '['){
           steck.pop(lastSymbol);
         } else {
           steck.push(currentSymbol);
